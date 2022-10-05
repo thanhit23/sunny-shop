@@ -1,0 +1,3 @@
+header .navbar.navbar-expand-xl .navbar-nav .nav-link::before {
+    content: " " !important;
+}
