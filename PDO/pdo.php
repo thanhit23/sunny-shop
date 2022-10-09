@@ -49,8 +49,7 @@ function execute($sql)
   try {
     $db = new DbConnect();
     $conn = $db->connect();
-    $stmt = $conn->prepare($sql);
-    $stmt->execute($sql_args);
+    $conn->prepare($sql)->execute($sql_args);
   } catch (PDOException $e) {
     throw $e;
   } finally {

@@ -6,8 +6,9 @@
  * Time: 3:34 PM
  */
 require('../../PDO/pdo.php');
-require('../../PDO/commodity.php');
+require('../../PDO/product.php');
 $id = $_GET['id'];
+session_start();
 ?>
 <!doctype html>
 <html lang="en">

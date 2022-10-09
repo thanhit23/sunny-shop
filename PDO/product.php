@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: tannguyen
+ * User: thanhNguyen
  * Date: 10/3/22
  * Time: 8:26 PM
  */
@@ -26,6 +26,11 @@ function commodityDelete($id) {
   } else{
     execute($sql, $id);
   }
+}
+
+function commodityPagination($limit) {
+  $sql = "SELECT * FROM `commodity` ORDER BY id DESC LIMIT $limit";
+  return query($sql);
 }
 
 /**

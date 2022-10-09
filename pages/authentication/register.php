@@ -1,22 +1,23 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: thanhnguyen
+ * User: thanhNguyen
  * Date: 9/26/22
  * Time: 11:44 PM
  */
 require_once ('../../PDO/client.php');
+session_start();
 $error = false;
   if(isset($_POST['btn-sign-up'])) {
     $result = clientSelectAll('email');
-    echo $result;
     foreach($result as $value) {
-      if ($_POST['email'] === $value['email']) {
-        $error = true;
-      } else {
-        $error = false;
-        clientInsert($_POST['password'], $_POST['fullname'], $_POST['email']);
-      }
+      if ($_POST['email'] === $value['email']) $error = true;
+      if (!$error) {
+        $_SESSION['email'] = $value['email'];
+        $_SESSION['fullName'] = $_POST['fullName'];
+        clientInsert($_POST['password'], $_POST['fullName'], $_POST['email']);
+        header('Location: /home');
+      };
     }
   }
 ?>
@@ -69,18 +70,14 @@ require('../templates/includes/header.php');
           <div class="log-in-title">
             <h3>Welcome To Fastkart</h3>
             <h4>Create New Account</h4>
-            <?php
-              if ($error) {
-                echo "<h4>Email tồn tại</h4>";
-              }
-            ?>
+            <?php if ($error) echo "<h4 style='color: red'>Email tồn tại</h4>";?>
           </div>
           <div class="input-box">
             <form method="post" class="row g-4">
               <div class="col-12">
                 <div class="form-floating theme-form-floating">
-                  <input type="text" class="form-control" id="fullname" placeholder="Full Name" name="fullname">
-                  <label for="fullname">Full Name</label>
+                  <input type="text" class="form-control" id="fullName" placeholder="Full Name" name="fullName">
+                  <label for="fullName">Full Name</label>
                 </div>
               </div>
               <div class="col-12">

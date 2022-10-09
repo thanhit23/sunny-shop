@@ -5,14 +5,16 @@
  * Date: 9/26/22
  * Time: 11:44 PM
  */
+session_start();
 require_once ('../../PDO/client.php');
 if (isset($_POST['btn-login'])) {
-  $result = clientSelectAll(1, 'password, email');
+  $result = clientSelectAll('password, email, full_name', 1);
   foreach($result as $value) {
     $email = $value['email'];
     $password = $value['password'];
     if ($_POST['email'] === $email && $_POST['password'] === $password) {
-      echo '<script>window.location.href="/home"</script>';
+      $_SESSION['fullName'] = $value['full_name'];
+      echo ("<script>location.href='/home'</script>");
     }
   }
 }

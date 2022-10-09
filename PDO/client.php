@@ -1,17 +1,20 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: tannguyen
+ * User: thanhNguyen
  * Date: 10/3/22
  * Time: 8:26 PM
  */
 require_once ('pdo.php');
 
-function clientChangePassword() {}
+function clientChangePassword($value, $email) {
+  $sql = "UPDATE `client` SET `password`=? WHERE email=?";
+  execute($sql, $value, $email);
+}
 
 function clientInsert($password, $name, $email) {
-  $img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNL_ZnOTpXSvhf1UaK7beHey2BX42U6solRA&usqp=CAU";
-  $sql = "INSERT INTO `client`(`id`, `password`, `full_name`, `active`, `image`, `email`, `role`) VALUES ('SN3',?,?,1,$img,?,1)";
+//  $img = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNL_ZnOTpXSvhf1UaK7beHey2BX42U6solRA&usqp=CAU';
+  $sql = "INSERT INTO `client`(`id`, `password`, `full_name`, `active`, `image`, `email`, `role`) VALUES ('SN3',?,?,1,'',?,1)";
   execute($sql, $password, $name, $email);
 }
 

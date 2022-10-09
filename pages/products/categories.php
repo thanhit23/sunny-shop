@@ -1,12 +1,13 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: tannguyen
+ * User: thanhNguyen
  * Date: 10/5/22
  * Time: 10:34 PM
  */
 require('../../PDO/pdo.php');
-require ('../../PDO/commodity.php');
+require('../../PDO/product.php');
+session_start();
 ?>
 <!doctype html>
 <html lang="en">

@@ -6,6 +6,10 @@
  * Time: 3:42 PM
  * Header
  */
+if (isset($_POST['logout'])) {
+  $_SESSION['email'] = null;
+  $_SESSION['fullName'] = null;
+}
 ?>
 <header class="pb-md-4 pb-0" style="background-color: #f8f8f8;">
   <div class="top-nav top-header sticky-header">
@@ -52,7 +56,8 @@
                   <div class="onhover-dropdown header-badge">
                     <button type="button" class="btn p-0 position-relative header-wishlist">
                       <i data-feather="shopping-cart"></i>
-                      <span class="position-absolute top-0 start-100 translate-middle badge">2
+                      <span class="position-absolute top-0 start-100 translate-middle badge">
+                        2
                         <span class="visually-hidden">unread messages</span>
                       </span>
                     </button>
@@ -61,10 +66,8 @@
                         <li class="product-box-contain">
                           <div class="drop-cart">
                             <a href="product-left.html" class="drop-image">
-                              <img src="https://themes.pixelstrap.com/fastkart/assets/images/vegetable/product/1.png"
-                                   class="blur-up lazyload" alt="">
+                              <img src="https://themes.pixelstrap.com/fastkart/assets/images/vegetable/product/1.png" class="blur-up lazyload" alt="">
                             </a>
-
                             <div class="drop-contain">
                               <a href="product-left.html">
                                 <h5>Fantasy Crunchy Choco Chip Cookies</h5>
@@ -76,65 +79,64 @@
                             </div>
                           </div>
                         </li>
-
-                        <li class="product-box-contain">
-                          <div class="drop-cart">
-                            <a href="product-left.html" class="drop-image">
-                              <img src="https://themes.pixelstrap.com/fastkart/assets/images/vegetable/product/2.png"
-                                   class="blur-up lazyload" alt="">
-                            </a>
-
-                            <div class="drop-contain">
-                              <a href="product-left.html">
-                                <h5>Peanut Butter Bite Premium Butter Cookies 600 g
-                                </h5>
-                              </a>
-                              <h6><span>1 x</span> $25.68</h6>
-                              <button class="close-button close_button">
-                                <i class="fa-solid fa-xmark"></i>
-                              </button>
-                            </div>
-                          </div>
-                        </li>
                       </ul>
-
                       <div class="price-box">
                         <h5>Total :</h5>
                         <h4 class="theme-color fw-bold">$106.58</h4>
                       </div>
-
                       <div class="button-group">
-                        <a href="cart.html" class="btn btn-sm cart-button">View Cart</a>
-                        <a href="checkout.html" class="btn btn-sm cart-button theme-bg-color
-                                                    text-white">Checkout</a>
+                        <a href="/cart" class="btn btn-sm cart-button">View Cart</a>
+                        <a href="checkout.html" class="btn btn-sm cart-button theme-bg-color text-white">Checkout</a>
                       </div>
                     </div>
                   </div>
                 </li>
                 <li class="right-side onhover-dropdown">
                   <div class="delivery-login-box">
-                    <div class="delivery-icon">
-                      <i data-feather="user"></i>
-                    </div>
-                    <div class="delivery-detail">
-                      <h6>Hello,</h6>
-                      <h5>My Account</h5>
-                    </div>
+                    <?php
+                      if (!$_SESSION['fullName']) {
+                        ?>
+                          <div class="delivery-icon">
+                            <i data-feather="user"></i>
+                          </div>
+                        <?php
+                      } else {
+                        ?>
+                        <div class="my-account">
+                          <h6>Hello,</h6>
+                          <h5><?php echo $_SESSION['fullName'] ?></h5>
+                        </div>
+                        <?php
+                      }
+                    ?>
                   </div>
-
                   <div class="onhover-div onhover-div-login">
-                    <ul class="user-box-name">
-                      <li class="product-box-contain">
-                        <i></i>
-                        <a href="/login">Log In</a>
-                      </li>
-                      <li class="product-box-contain">
-                        <a href="/signup">Register</a>
-                      </li>
-                      <li class="product-box-contain">
-                        <a href="/forgot">Forgot Password</a>
-                      </li>
-                    </ul>
+                    <form method="post">
+                      <ul class="user-box-name">
+                        <?php
+                        if ($_SESSION['fullName']) {
+                          ?>
+                            <li class="product-box-contain">
+                              <a href="/forgot">Forgot Password</a>
+                            </li>
+                            <li class="product-box-contain">
+                              <a><button class="btn-logout" name="logout">logout</button></a>
+                            </li>
+                          <?php
+                        } else {
+                        ?>
+                          <li class="product-box-contain">
+                            <i></i>
+                            <a href="/login">Log In</a>
+                          </li>
+                          <li class="product-box-contain">
+                            <a href="/signup">Register</a>
+                          </li>
+                        <?php
+                        }
+                        ?>
+                      </ul>
+                    </form>
                   </div>
                 </li>
               </ul>
@@ -144,7 +146,6 @@
       </div>
     </div>
   </div>
-
   <div class="container-fluid-lg">
     <div class="row">
       <div class="col-12">
@@ -165,7 +166,7 @@
                       </a>
                     </li>
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                      <a class="nav-link dropdown-toggle" href="#products"
                          data-bs-toggle="dropdown">Product</a>
                     </li>
                     <li class="nav-item dropdown">
