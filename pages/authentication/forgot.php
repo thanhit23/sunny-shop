@@ -1,11 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thanhnguyen
- * Date: 9/26/22
- * Time: 11:44 PM
- */
-require('../../PDO/client.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/PDO/client.php');
 session_start();
 ?>
 <!doctype html>

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thanhNguyen
- * Date: 10/3/22
- * Time: 8:26 PM
- */
 require_once ('pdo.php');
 
 function Insert($name) {
@@ -12,9 +6,9 @@ function Insert($name) {
   execute($sql, $name);
 }
 
-function commodityUpdate($name, $id) {
-  $sql = "UPDATE `type` SET `commodity`=? WHERE `id`=?";
-  execute($sql, $name, $id);
+function commodityUpdate($name, $price, $discount, $description, $view, $type, $id) {
+  $sql = "UPDATE `commodity` SET `name`=?,`unit_price`=?,`discount`=?,`description`=?,`view`=?,`id_type`=? WHERE `id`=?";
+  execute($sql, $name, $price, $discount, $description, $view, $type, $id);
 }
 
 function commodityDelete($id) {

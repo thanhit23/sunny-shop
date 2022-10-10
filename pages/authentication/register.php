@@ -1,11 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thanhNguyen
- * Date: 9/26/22
- * Time: 11:44 PM
- */
-require_once ('../../PDO/client.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/PDO/client.php');
 session_start();
 $error = false;
   if(isset($_POST['btn-sign-up'])) {

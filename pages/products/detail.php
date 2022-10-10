@@ -1,12 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thanhNguyen
- * Date: 9/23/22
- * Time: 3:34 PM
- */
-require('../../PDO/pdo.php');
-require('../../PDO/product.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/PDO/product.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/PDO/pdo.php');
+
 $id = $_GET['id'];
 session_start();
 ?>

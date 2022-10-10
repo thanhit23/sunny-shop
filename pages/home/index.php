@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thanhNguyen
- * Date: 9/23/22
- * Time: 3:34 PM
- */
-require('../../PDO/pdo.php');
-require('../../PDO/product.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/PDO/product.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/PDO/pdo.php');
 session_start();
 ?>
 <!doctype html>
@@ -245,557 +239,205 @@ require('../templates/includes/header.php');
             </div>
           </div>
         </div>
-<!--        <div class="title d-block">-->
-<!--          <h2>Food Cupboard</h2>-->
-<!--          <span class="title-leaf">-->
-<!--            <svg class="icon-width">-->
-<!--              <use xlink:href="https://themes.pixelstrap.com/fastkart/assets/svg/leaf.svg#leaf"></use>-->
-<!--            </svg>-->
-<!--          </span>-->
-<!--          <p>A virtual assistant collects the products from your list</p>-->
-<!--        </div>-->
-<!--        <div class="product-border overflow-hidden wow fadeInUp">-->
-<!--          <div class="product-box-slider no-arrow">-->
-<!--            <div>-->
-<!--              <div class="row m-0">-->
-<!--                <div class="col-12 px-0">-->
-<!--                  <div class="product-box">-->
-<!--                    <div class="product-image">-->
-<!--                      <a href="product-left.html">-->
-<!--                        <img src="https://themes.pixelstrap.com/fastkart/assets/images/vegetable/product/1.png"-->
-<!--                             class="img-fluid blur-up lazyload" alt="">-->
-<!--                      </a>-->
-<!--                      <ul class="product-option">-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">-->
-<!--                          <a href="javascript:void(0)" data-bs-toggle="modal"-->
-<!--                             data-bs-target="#view">-->
-<!--                            <i data-feather="eye"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top"-->
-<!--                            title="Compare">-->
-<!--                          <a href="compare.html">-->
-<!--                            <i data-feather="refresh-cw"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top"-->
-<!--                            title="Wishlist">-->
-<!--                          <a href="wishlist.html" class="notifi-wishlist">-->
-<!--                            <i data-feather="heart"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!--                      </ul>-->
-<!--                    </div>-->
-<!--                    <div class="product-detail">-->
-<!--                      <a href="product-left.html">-->
-<!--                        <h6 class="name h-100">Chocalate Powder</h6>-->
-<!--                      </a>-->
-<!---->
-<!--                      <h5 class="sold text-content">-->
-<!--                        <span class="theme-color price">$26.69</span>-->
-<!--                        <del>28.56</del>-->
-<!--                      </h5>-->
-<!---->
-<!--                      <div class="product-rating mt-2">-->
-<!--                        <ul class="rating">-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star"></i>-->
-<!--                          </li>-->
-<!--                        </ul>-->
-<!---->
-<!--                        <h6 class="theme-color">In Stock</h6>-->
-<!--                      </div>-->
-<!---->
-<!--                      <div class="add-to-cart-box">-->
-<!--                        <button class="btn btn-add-cart addcart-button">Add-->
-<!--                          <i class="fa-solid fa-plus"></i></button>-->
-<!--                        <div class="cart_qty qty-box">-->
-<!--                          <div class="input-group">-->
-<!--                            <button type="button" class="qty-left-minus"-->
-<!--                                    data-type="minus" data-field="">-->
-<!--                              <i class="fa fa-minus" aria-hidden="true"></i>-->
-<!--                            </button>-->
-<!--                            <input class="form-control input-number qty-input"-->
-<!--                                   type="text" name="quantity" value="0">-->
-<!--                            <button type="button" class="qty-right-plus"-->
-<!--                                    data-type="plus" data-field="">-->
-<!--                              <i class="fa fa-plus" aria-hidden="true"></i>-->
-<!--                            </button>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!---->
-<!--            <div>-->
-<!--              <div class="row m-0">-->
-<!--                <div class="col-12 px-0">-->
-<!--                  <div class="product-box">-->
-<!--                    <div class="product-image">-->
-<!--                      <a href="product-left.html">-->
-<!--                        <img src="https://themes.pixelstrap.com/fastkart/assets/images/vegetable/product/2.png"-->
-<!--                             class="img-fluid blur-up lazyload" alt="">-->
-<!--                      </a>-->
-<!--                      <ul class="product-option">-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">-->
-<!--                          <a href="javascript:void(0)" data-bs-toggle="modal"-->
-<!--                             data-bs-target="#view">-->
-<!--                            <i data-feather="eye"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top"-->
-<!--                            title="Compare">-->
-<!--                          <a href="compare.html">-->
-<!--                            <i data-feather="refresh-cw"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top"-->
-<!--                            title="Wishlist">-->
-<!--                          <a href="wishlist.html" class="notifi-wishlist">-->
-<!--                            <i data-feather="heart"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!--                      </ul>-->
-<!--                    </div>-->
-<!--                    <div class="product-detail">-->
-<!--                      <a href="product-left.html">-->
-<!--                        <h6 class="name h-100">Sandwich Cookies</h6>-->
-<!--                      </a>-->
-<!---->
-<!--                      <h5 class="sold text-content">-->
-<!--                        <span class="theme-color price">$26.69</span>-->
-<!--                        <del>28.56</del>-->
-<!--                      </h5>-->
-<!---->
-<!--                      <div class="product-rating mt-2">-->
-<!--                        <ul class="rating">-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star"></i>-->
-<!--                          </li>-->
-<!--                        </ul>-->
-<!---->
-<!--                        <h6 class="theme-color">In Stock</h6>-->
-<!--                      </div>-->
-<!---->
-<!--                      <div class="add-to-cart-box">-->
-<!--                        <button class="btn btn-add-cart addcart-button">Add-->
-<!--                          <i class="fa-solid fa-plus"></i></button>-->
-<!--                        <div class="cart_qty qty-box">-->
-<!--                          <div class="input-group">-->
-<!--                            <button type="button" class="qty-left-minus"-->
-<!--                                    data-type="minus" data-field="">-->
-<!--                              <i class="fa fa-minus" aria-hidden="true"></i>-->
-<!--                            </button>-->
-<!--                            <input class="form-control input-number qty-input"-->
-<!--                                   type="text" name="quantity" value="0">-->
-<!--                            <button type="button" class="qty-right-plus"-->
-<!--                                    data-type="plus" data-field="">-->
-<!--                              <i class="fa fa-plus" aria-hidden="true"></i>-->
-<!--                            </button>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!---->
-<!--            <div>-->
-<!--              <div class="row m-0">-->
-<!--                <div class="col-12 px-0">-->
-<!--                  <div class="product-box">-->
-<!--                    <div class="product-image">-->
-<!--                      <a href="product-left.html">-->
-<!--                        <img src="https://themes.pixelstrap.com/fastkart/assets/images/vegetable/product/3.png"-->
-<!--                             class="img-fluid blur-up lazyload" alt="">-->
-<!--                      </a>-->
-<!--                      <ul class="product-option">-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">-->
-<!--                          <a href="javascript:void(0)" data-bs-toggle="modal"-->
-<!--                             data-bs-target="#view">-->
-<!--                            <i data-feather="eye"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top"-->
-<!--                            title="Compare">-->
-<!--                          <a href="compare.html">-->
-<!--                            <i data-feather="refresh-cw"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top"-->
-<!--                            title="Wishlist">-->
-<!--                          <a href="wishlist.html" class="notifi-wishlist">-->
-<!--                            <i data-feather="heart"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!--                      </ul>-->
-<!--                    </div>-->
-<!--                    <div class="product-detail">-->
-<!--                      <a href="product-left.html">-->
-<!--                        <h6 class="name h-100">Butter Croissant</h6>-->
-<!--                      </a>-->
-<!---->
-<!--                      <h5 class="sold text-content">-->
-<!--                        <span class="theme-color price">$26.69</span>-->
-<!--                        <del>28.56</del>-->
-<!--                      </h5>-->
-<!---->
-<!--                      <div class="product-rating mt-2">-->
-<!--                        <ul class="rating">-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star"></i>-->
-<!--                          </li>-->
-<!--                        </ul>-->
-<!---->
-<!--                        <h6 class="theme-color">In Stock</h6>-->
-<!--                      </div>-->
-<!---->
-<!--                      <div class="add-to-cart-box">-->
-<!--                        <button class="btn btn-add-cart addcart-button">Add-->
-<!--                          <i class="fa-solid fa-plus"></i></button>-->
-<!--                        <div class="cart_qty qty-box">-->
-<!--                          <div class="input-group">-->
-<!--                            <button type="button" class="qty-left-minus"-->
-<!--                                    data-type="minus" data-field="">-->
-<!--                              <i class="fa fa-minus" aria-hidden="true"></i>-->
-<!--                            </button>-->
-<!--                            <input class="form-control input-number qty-input"-->
-<!--                                   type="text" name="quantity" value="0">-->
-<!--                            <button type="button" class="qty-right-plus"-->
-<!--                                    data-type="plus" data-field="">-->
-<!--                              <i class="fa fa-plus" aria-hidden="true"></i>-->
-<!--                            </button>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!---->
-<!--            <div>-->
-<!--              <div class="row m-0">-->
-<!--                <div class="col-12 px-0">-->
-<!--                  <div class="product-box">-->
-<!--                    <div class="product-image">-->
-<!--                      <a href="product-left.html">-->
-<!--                        <img src="https://themes.pixelstrap.com/fastkart/assets/images/vegetable/product/4.png"-->
-<!--                             class="img-fluid blur-up lazyload" alt="">-->
-<!--                      </a>-->
-<!--                      <ul class="product-option">-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">-->
-<!--                          <a href="javascript:void(0)" data-bs-toggle="modal"-->
-<!--                             data-bs-target="#view">-->
-<!--                            <i data-feather="eye"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top"-->
-<!--                            title="Compare">-->
-<!--                          <a href="compare.html">-->
-<!--                            <i data-feather="refresh-cw"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top"-->
-<!--                            title="Wishlist">-->
-<!--                          <a href="wishlist.html" class="notifi-wishlist">-->
-<!--                            <i data-feather="heart"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!--                      </ul>-->
-<!--                    </div>-->
-<!--                    <div class="product-detail">-->
-<!--                      <a href="product-left.html">-->
-<!--                        <h6 class="name h-100">Dark Chocalate</h6>-->
-<!--                      </a>-->
-<!---->
-<!--                      <h5 class="sold text-content">-->
-<!--                        <span class="theme-color price">$26.69</span>-->
-<!--                        <del>28.56</del>-->
-<!--                      </h5>-->
-<!---->
-<!--                      <div class="product-rating mt-2">-->
-<!--                        <ul class="rating">-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star"></i>-->
-<!--                          </li>-->
-<!--                        </ul>-->
-<!---->
-<!--                        <h6 class="theme-color">In Stock</h6>-->
-<!--                      </div>-->
-<!---->
-<!--                      <div class="add-to-cart-box">-->
-<!--                        <button class="btn btn-add-cart addcart-button">Add-->
-<!--                          <i class="fa-solid fa-plus"></i></button>-->
-<!--                        <div class="cart_qty qty-box">-->
-<!--                          <div class="input-group">-->
-<!--                            <button type="button" class="qty-left-minus"-->
-<!--                                    data-type="minus" data-field="">-->
-<!--                              <i class="fa fa-minus" aria-hidden="true"></i>-->
-<!--                            </button>-->
-<!--                            <input class="form-control input-number qty-input"-->
-<!--                                   type="text" name="quantity" value="0">-->
-<!--                            <button type="button" class="qty-right-plus"-->
-<!--                                    data-type="plus" data-field="">-->
-<!--                              <i class="fa fa-plus" aria-hidden="true"></i>-->
-<!--                            </button>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!---->
-<!--            <div>-->
-<!--              <div class="row m-0">-->
-<!--                <div class="col-12 px-0">-->
-<!--                  <div class="product-box">-->
-<!--                    <div class="product-image">-->
-<!--                      <a href="product-left.html">-->
-<!--                        <img src="https://themes.pixelstrap.com/fastkart/assets/images/vegetable/product/5.png"-->
-<!--                             class="img-fluid blur-up lazyload" alt="">-->
-<!--                      </a>-->
-<!--                      <ul class="product-option">-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">-->
-<!--                          <a href="javascript:void(0)" data-bs-toggle="modal"-->
-<!--                             data-bs-target="#view">-->
-<!--                            <i data-feather="eye"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top"-->
-<!--                            title="Compare">-->
-<!--                          <a href="compare.html">-->
-<!--                            <i data-feather="refresh-cw"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top"-->
-<!--                            title="Wishlist">-->
-<!--                          <a href="wishlist.html" class="notifi-wishlist">-->
-<!--                            <i data-feather="heart"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!--                      </ul>-->
-<!--                    </div>-->
-<!--                    <div class="product-detail">-->
-<!--                      <a href="product-left.html">-->
-<!--                        <h6 class="name h-100">Mix-sweet-food</h6>-->
-<!--                      </a>-->
-<!---->
-<!--                      <h5 class="sold text-content">-->
-<!--                        <span class="theme-color price">$26.69</span>-->
-<!--                        <del>28.56</del>-->
-<!--                      </h5>-->
-<!---->
-<!--                      <div class="product-rating mt-2">-->
-<!--                        <ul class="rating">-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star"></i>-->
-<!--                          </li>-->
-<!--                        </ul>-->
-<!---->
-<!--                        <h6 class="theme-color">In Stock</h6>-->
-<!--                      </div>-->
-<!---->
-<!--                      <div class="add-to-cart-box">-->
-<!--                        <button class="btn btn-add-cart addcart-button">Add-->
-<!--                          <i class="fa-solid fa-plus"></i></button>-->
-<!--                        <div class="cart_qty qty-box">-->
-<!--                          <div class="input-group">-->
-<!--                            <button type="button" class="qty-left-minus"-->
-<!--                                    data-type="minus" data-field="">-->
-<!--                              <i class="fa fa-minus" aria-hidden="true"></i>-->
-<!--                            </button>-->
-<!--                            <input class="form-control input-number qty-input"-->
-<!--                                   type="text" name="quantity" value="0">-->
-<!--                            <button type="button" class="qty-right-plus"-->
-<!--                                    data-type="plus" data-field="">-->
-<!--                              <i class="fa fa-plus" aria-hidden="true"></i>-->
-<!--                            </button>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!---->
-<!--            <div>-->
-<!--              <div class="row m-0">-->
-<!--                <div class="col-12 px-0">-->
-<!--                  <div class="product-box">-->
-<!--                    <div class="product-image">-->
-<!--                      <a href="product-left.html">-->
-<!--                        <img src="https://themes.pixelstrap.com/fastkart/assets/images/vegetable/product/4.png"-->
-<!--                             class="img-fluid blur-up lazyload" alt="">-->
-<!--                      </a>-->
-<!--                      <ul class="product-option">-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">-->
-<!--                          <a href="javascript:void(0)" data-bs-toggle="modal"-->
-<!--                             data-bs-target="#view">-->
-<!--                            <i data-feather="eye"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top"-->
-<!--                            title="Compare">-->
-<!--                          <a href="compare.html">-->
-<!--                            <i data-feather="refresh-cw"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!---->
-<!--                        <li data-bs-toggle="tooltip" data-bs-placement="top"-->
-<!--                            title="Wishlist">-->
-<!--                          <a href="wishlist.html" class="notifi-wishlist">-->
-<!--                            <i data-feather="heart"></i>-->
-<!--                          </a>-->
-<!--                        </li>-->
-<!--                      </ul>-->
-<!--                    </div>-->
-<!--                    <div class="product-detail">-->
-<!--                      <a href="product-left.html">-->
-<!--                        <h6 class="name h-100">Dark Chocalate</h6>-->
-<!--                      </a>-->
-<!---->
-<!--                      <h5 class="sold text-content">-->
-<!--                        <span class="theme-color price">$26.69</span>-->
-<!--                        <del>28.56</del>-->
-<!--                      </h5>-->
-<!---->
-<!--                      <div class="product-rating mt-2">-->
-<!--                        <ul class="rating">-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star" class="fill"></i>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <i data-feather="star"></i>-->
-<!--                          </li>-->
-<!--                        </ul>-->
-<!---->
-<!--                        <h6 class="theme-color">In Stock</h6>-->
-<!--                      </div>-->
-<!---->
-<!--                      <div class="add-to-cart-box">-->
-<!--                        <button class="btn btn-add-cart addcart-button">Add-->
-<!--                          <i class="fa-solid fa-plus"></i></button>-->
-<!--                        <div class="cart_qty qty-box">-->
-<!--                          <div class="input-group">-->
-<!--                            <button type="button" class="qty-left-minus"-->
-<!--                                    data-type="minus" data-field="">-->
-<!--                              <i class="fa fa-minus" aria-hidden="true"></i>-->
-<!--                            </button>-->
-<!--                            <input class="form-control input-number qty-input"-->
-<!--                                   type="text" name="quantity" value="0">-->
-<!--                            <button type="button" class="qty-right-plus"-->
-<!--                                    data-type="plus" data-field="">-->
-<!--                              <i class="fa fa-plus" aria-hidden="true"></i>-->
-<!--                            </button>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div class="title d-block">
+          <h2>Tìm Kiếm nhiều nhất</h2>
+          <span class="title-leaf"></span>
+        </div>
+        <div class="product-border overflow-hidden wow fadeInUp">
+          <div class="product-box-slider no-arrow">
+            <?php
+              $result = commoditySelectAll("name LIKE '%iphone 13%'");
+              if ($result) {
+                foreach ($result as $value) {
+                  $price = number_format($value['unit_price'], 0, '', ',');
+                  $name = $value['name'];
+                  $discount = $value['discount'];
+                  $priceNew = (int)$unit_price;
+                  $discountNew = (int)$discount === 0 ? 1 : $discount;
+                  $priceOff = number_format($priceNew / ((100 - $discountNew) / 100), 0);
+                  $db = $value['image'];
+                  $img = json_decode($db);
+                  ?>
+                  <div>
+                    <div class="row m-0">
+                      <div class="col-12 px-0">
+                        <div class="product-box">
+                          <div class="product-image">
+                            <a href="/product.html?name=<?php echo $name ?>&id=<?php echo $value['id'] ?>">
+                              <img src="<?php echo $img[0] ?>" class="img-fluid blur-up lazyload" alt="">
+                            </a>
+                            <ul class="product-option">
+                              <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                   data-bs-target="#view">
+                                  <i data-feather="eye"></i>
+                                </a>
+                              </li>
+                              <li data-bs-toggle="tooltip" data-bs-placement="top"
+                                  title="Compare">
+                                <a href="javascript:void(0)">
+                                  <i data-feather="refresh-cw"></i>
+                                </a>
+                              </li>
+                              <li data-bs-toggle="tooltip" data-bs-placement="top"
+                                  title="Wishlist">
+                                <a href="javascript:void(0)" class="notifi-wishlist">
+                                  <i data-feather="heart"></i>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="product-detail">
+                            <a href="/product.html?name=<?php echo $name ?>&id=<?php echo $value['id'] ?>">
+                              <h6 class="name h-100"><?php echo $name ?></h6>
+                            </a>
+                            <h5 class="sold text-content">
+                              <span class="theme-color price"><?php echo $priceNew. ' đ' ?></span>
+                              <del><?php echo $priceOff ?></del>
+                            </h5>
+                            <div class="product-rating mt-2">
+                              <ul class="rating">
+                                <li>
+                                  <i data-feather="star" class="fill"></i>
+                                </li>
+                                <li>
+                                  <i data-feather="star" class="fill"></i>
+                                </li>
+                                <li>
+                                  <i data-feather="star" class="fill"></i>
+                                </li>
+                                <li>
+                                  <i data-feather="star" class="fill"></i>
+                                </li>
+                                <li>
+                                  <i data-feather="star"></i>
+                                </li>
+                              </ul>
+
+                              <h6 class="theme-color">In Stock</h6>
+                            </div>
+
+                            <div class="add-to-cart-box">
+                              <button class="btn btn-add-cart addcart-button">Add
+                                <i class="fa-solid fa-plus"></i></button>
+                              <div class="cart_qty qty-box">
+                                <div class="input-group">
+                                  <button type="button" class="qty-left-minus"
+                                          data-type="minus" data-field="">
+                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                  </button>
+                                  <input class="form-control input-number qty-input"
+                                         type="text" name="quantity" value="0">
+                                  <button type="button" class="qty-right-plus"
+                                          data-type="plus" data-field="">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <?php
+                }
+              }
+            ?>
+            <div>
+              <div class="row m-0">
+                <div class="col-12 px-0">
+                  <div class="product-box">
+                    <div class="product-image">
+                      <a href="product-left.html">
+                        <img src="https://themes.pixelstrap.com/fastkart/assets/images/vegetable/product/2.png"
+                             class="img-fluid blur-up lazyload" alt="">
+                      </a>
+                      <ul class="product-option">
+
+                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                          <a href="javascript:void(0)" data-bs-toggle="modal"
+                             data-bs-target="#view">
+                            <i data-feather="eye"></i>
+                          </a>
+                        </li>
+
+                        <li data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Compare">
+                          <a href="compare.html">
+                            <i data-feather="refresh-cw"></i>
+                          </a>
+                        </li>
+
+                        <li data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Wishlist">
+                          <a href="wishlist.html" class="notifi-wishlist">
+                            <i data-feather="heart"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="product-detail">
+                      <a href="product-left.html">
+                        <h6 class="name h-100">Sandwich Cookies</h6>
+                      </a>
+
+                      <h5 class="sold text-content">
+                        <span class="theme-color price">$26.69</span>
+                        <del>28.56</del>
+                      </h5>
+
+                      <div class="product-rating mt-2">
+                        <ul class="rating">
+                          <li>
+                            <i data-feather="star" class="fill"></i>
+                          </li>
+                          <li>
+                            <i data-feather="star" class="fill"></i>
+                          </li>
+                          <li>
+                            <i data-feather="star" class="fill"></i>
+                          </li>
+                          <li>
+                            <i data-feather="star" class="fill"></i>
+                          </li>
+                          <li>
+                            <i data-feather="star"></i>
+                          </li>
+                        </ul>
+
+                        <h6 class="theme-color">In Stock</h6>
+                      </div>
+
+                      <div class="add-to-cart-box">
+                        <button class="btn btn-add-cart addcart-button">Add
+                          <i class="fa-solid fa-plus"></i></button>
+                        <div class="cart_qty qty-box">
+                          <div class="input-group">
+                            <button type="button" class="qty-left-minus"
+                                    data-type="minus" data-field="">
+                              <i class="fa fa-minus" aria-hidden="true"></i>
+                            </button>
+                            <input class="form-control input-number qty-input"
+                                   type="text" name="quantity" value="0">
+                            <button type="button" class="qty-right-plus"
+                                    data-type="plus" data-field="">
+                              <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
 <?php
 require('../templates/includes/footer.php')
 ?>

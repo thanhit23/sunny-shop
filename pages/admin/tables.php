@@ -1,6 +1,20 @@
 <?php
-require_once('../../PDO/product.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/PDO/product.php');
 require('../templates/includes/admin/helmet.php');
+if (isset($_POST['btn-update'])) {
+  $idUpdate = (int) $_GET['IdUpdate'];
+  $name = $_POST['nameProduct'];
+  $price = floatval($_POST['priceProduct']);
+  $discount = floatval($_POST['discountProduct']);
+  $description = $_POST['descriptionProduct'];
+  $view = (int) $_POST['viewProduct'];
+  $type = (int) $_POST['type'];
+  commodityUpdate($name, $price, $discount, $description, $view, $type, $idUpdate);
+}
+$idDelete = (int) $_GET['IdDelete'];
+if ($idDelete) {
+  commodityDelete($idDelete);
+}
 ?>
 <body class="g-sidenav-show bg-gray-100">
 <div class="min-height-300 bg-primary position-absolute w-100"></div>
@@ -151,7 +165,6 @@ require('../templates/includes/admin/navbar-vertical.php');
                   $index = 0;
                   foreach ($result as $value) {
                     $index++;
-                    $id = $value['id'];
                     $name = $value['name'];
                     $createAt = $value['create_at'];
                     $unit_price = number_format($value['unit_price'], 0);
@@ -181,8 +194,12 @@ require('../templates/includes/admin/navbar-vertical.php');
                       <span class="text-secondary text-xs font-weight-bold"><?php echo $createAt ?></span>
                     </td>
                     <td class="align-middle">
-                      <span class="badge badge-sm bg-gradient-primary">Edit</span>
-                      <span class="badge badge-sm bg-gradient-danger">Delete</span>
+                      <a href="./tables.php?IdUpdate=<?php echo $value['id'] ?>">
+                        <span class="badge badge-sm bg-gradient-primary">Edit</span>
+                      </a>
+                      <a href="./tables.php?IdDelete=<?php echo $value['id'] ?>">
+                        <button name="btn-delete" class="badge badge-sm bg-gradient-danger">Delete</button>
+                      </a>
                     </td>
                   </tr>
                 <?php
@@ -196,45 +213,80 @@ require('../templates/includes/admin/navbar-vertical.php');
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header pb-0">
-            <div class="d-flex align-items-center">
-              <p class="mb-0">Edit Product</p>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="example-text-input" class="form-control-label">Tên</label>
-                  <input class="form-control" type="text" value="lucky.jesse" placeholder="Tên Sản Phẩm...">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="example-text-input" class="form-control-label">Giá</label>
-                  <input class="form-control" type="email" value="jesse@example.com" placeholder="Giá Sản Phẩm...">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="example-text-input" class="form-control-label">Loại</label>
-                  <input class="form-control" type="text" value="Lucky" placeholder="Loại ...">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card-header pb-0">
-            <div class="d-flex align-items-center">
-              <button class="btn btn-primary btn-sm ms-auto">Submit</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <?php
+    $idUpdate = $_GET['IdUpdate'];
+    if ($idUpdate) {
+    $result = commoditySelectAll("id = $idUpdate");
+      if ($result) {
+        foreach ($result as $value) {
+          ?>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header pb-0">
+                  <div class="d-flex align-items-center">
+                    <p class="mb-0">Edit Product</p>
+                  </div>
+                </div>
+                <form method="post">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="example-text-input" class="form-control-label">Tên</label>
+                          <input name="nameProduct" class="form-control" type="text" value="<?php echo $value['name'] ?>" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="example-text-input" class="form-control-label">Giá</label>
+                          <input name="priceProduct" class="form-control" type="number" value="<?php echo $value['unit_price'] ?>" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="example-text-input" class="form-control-label">Giảm giá</label>
+                          <input name="discountProduct" class="form-control" type="text" value="<?php echo $value['discount'] ?>" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="example-text-input" class="form-control-label">Mô tả</label>
+                          <input name="descriptionProduct" class="form-control" type="text" value="<?php echo $value['description'] ?>" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="example-text-input" class="form-control-label">Lượt xem</label>
+                          <input name="viewProduct" class="form-control" type="text" value="<?php echo $value['view'] ?>" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="type" class="form-control-label">Loại</label>
+                          <select name="type" id="type" style="border: 1px solid #d2d6da;font-size: 0.875rem;font-weight: 400;line-height: 1.4rem;color: #495057;">
+                            <option value="0">Chọn Loại</option>
+                            <option <?php if($value['id_type'] == 1) { echo 'selected'; } ?> value="1">Samsung</option>
+                            <option <?php if($value['id_type'] == 2) { echo 'selected'; } ?> value="2">Iphone</option>
+                            <option <?php if($value['id_type'] == 3) { echo 'selected'; } ?> value="3">Redmi</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-header pb-0">
+                    <div class="d-flex align-items-center">
+                      <button name="btn-update" class="btn btn-primary btn-sm ms-auto">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+            <?php
+        }
+      }
+    }
     require('../templates/includes/admin/footer.php');
     ?>
   </div>

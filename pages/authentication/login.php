@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thanhnguyen
- * Date: 9/26/22
- * Time: 11:44 PM
- */
 session_start();
-require_once ('../../PDO/client.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/PDO/client.php');
 if (isset($_POST['btn-login'])) {
   $result = clientSelectAll('password, email, full_name', 1);
   foreach($result as $value) {
