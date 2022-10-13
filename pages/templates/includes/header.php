@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thanhNguyen
- * Date: 9/23/22
- * Time: 3:42 PM
- * Header
- */
 if (isset($_POST['logout'])) {
   $_SESSION['email'] = null;
   $_SESSION['fullName'] = null;
@@ -21,7 +14,7 @@ if (isset($_POST['logout'])) {
               <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
             </button>
             <a href="/home" class="web-logo nav-logo">
-              <img src="../../../resources/image/Sunny-Shop.png" class="img-fluid blur-up lazyload" alt="">
+              <img src="../../../resources/images/Sunny-Shop.png" class="img-fluid blur-up lazyload" alt="">
             </a>
             <div class="middle-box">
               <div class="search-box">

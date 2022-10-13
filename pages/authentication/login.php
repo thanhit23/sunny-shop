@@ -1,8 +1,8 @@
 <?php
 session_start();
-require($_SERVER['DOCUMENT_ROOT'] . '/PDO/client.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/PDO/user.php');
 if (isset($_POST['btn-login'])) {
-  $result = clientSelectAll('password, email, full_name', 1);
+  $result = clientSelectAll('password, email, full_name');
   foreach($result as $value) {
     $email = $value['email'];
     $password = $value['password'];
@@ -18,13 +18,13 @@ if (isset($_POST['btn-login'])) {
 <head>
   <title>Sunny Shop</title>
   <?php
-  require('../templates/includes/helmet.php')
+  require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/helmet.php')
   ?>
   <link rel="stylesheet" href="/resources/css/header.css">
 </head>
 <body>
 <?php
-require('../templates/includes/header.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/header.php');
 ?>
 <section class="breadscrumb-section pt-0 mt-3">
   <div class="container-fluid-lg">
@@ -125,7 +125,7 @@ require('../templates/includes/header.php');
     </div>
   </section>
 <?php
-require('../templates/includes/footer.php')
+require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/footer.php')
 ?>
 </body>
 </html>

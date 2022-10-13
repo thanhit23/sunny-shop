@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tannguyen
- * Date: 10/3/22
- * Time: 8:26 PM
- */
 require_once './pdo.php';
 
 function typeInsert($name) {

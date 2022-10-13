@@ -1,10 +1,10 @@
 <?php
-  require('../templates/includes/admin/helmet.php');
+  require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/helmet.php');
 ?>
 <body class="g-sidenav-show bg-gray-100">
   <div class="min-height-300 bg-primary position-absolute w-100"></div>
   <?php
-    require('../templates/includes/admin/navbar-vertical.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/navbar-vertical.php');
   ?>
   <main class="main-content position-relative border-radius-lg ">
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
@@ -492,12 +492,12 @@
         </div>
       </div>
       <?php
-        require('../templates/includes/admin/footer.php');
+        require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/footer.php');
       ?>
     </div>
   </main>
   <?php
-    require('../templates/includes/admin/script.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/script.php');
   ?>
 </body>
 </html>

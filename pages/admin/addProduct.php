@@ -1,43 +1,24 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . '/PDO/product.php');
-require('../templates/includes/admin/helmet.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/global.php');
+
+require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/helmet.php');
 if (isset($_POST['btn-submit'])) {
   $name = $_POST['name'];
-  $price = $_POST['price'];
-  $discount = $_POST['discount'];
-  $image = $_POST['image'];
+  $price = (int) $_POST['price'];
+  $discount = (int) $_POST['discount'];
+  $image = save_file("uploadFile", $_SERVER['DOCUMENT_ROOT']. '/resources/images/uploads/');
   $description = $_POST['description'];
-  $view = $_POST['view'];
-  $type = $_POST['type'];
-  $img2 = $_FILES['uploadImage'];
-
-  echo $name. '$name---';
-  echo $_FILES['uploadImage']['name']. '$img2$img2';
-
-  // Nếu người dùng có chọn file để upload
-  if ($_FILES['image'])
-  {
-    // Nếu file upload không bị lỗi,
-    // Tức là thuộc tính error > 0
-    if ($_FILES['image']['error'] > 0)
-    {
-      echo 'File Upload Bị Lỗi';
-    }
-    else{
-      // Upload file
-      move_uploaded_file($_FILES['image']['tmp_name'], './upload/'.$_FILES['image']['name']);
-      echo 'File Uploaded';
-    }
-  }
-  else{
-    echo 'Bạn chưa chọn file upload';
-  }
+  $special = (int) $_POST['special'];
+  $view = (int) $_POST['view'];
+  $type = (int) $_POST['type'];
+  productInsert($name, $price, $discount, '["/resources/images/uploads/'.$image.'"]', $description, $special, $view, $type);
 }
 ?>
 <body class="g-sidenav-show bg-gray-100">
 <div class="min-height-300 bg-primary position-absolute w-100"></div>
 <?php
-//require('../templates/includes/admin/navbar-vertical.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/navbar-vertical.php');
 ?>
 <main class="main-content position-relative border-radius-lg ">
   <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur"
@@ -156,7 +137,7 @@ if (isset($_POST['btn-submit'])) {
       </div>
     </div>
   </nav>
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-md-8">
@@ -189,19 +170,30 @@ if (isset($_POST['btn-submit'])) {
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Hình Ảnh</label>
-                    <input name="uploadImage" class="form-control" type="file">
+                    <input name="uploadFile" class="form-control" type="file">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Mô tả</label>
-                    <input name="description" class="form-control" type="text" placeholder="Mô Tả Sản Phẩm...">
+                    <label for="example-text-input" class="form-control-label">
+                      Mô tả
+                      <textarea name="description" rows="6" cols="45"></textarea>
+                    </label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Lượt Xem</label>
                     <input name="view" class="form-control" type="number" placeholder="Lượt Xem Của Sản Phẩm...">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="special" class="form-control-label">Đặc Biệt</label>
+                    <select name="special" id="special" style="border: 1px solid #d2d6da;font-size: 0.875rem;font-weight: 400;line-height: 1.4rem;color: #495057;">
+                      <option value="1">Có</option>
+                      <option value="2">Không</option>
+                    </select>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -226,13 +218,13 @@ if (isset($_POST['btn-submit'])) {
         </div>
       </div>
       <?php
-      require('../templates/includes/admin/footer.php');
+      require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/footer.php');
       ?>
     </div>
   </form>
 </main>
 <?php
-require('../templates/includes/admin/script.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/script.php');
 ?>
 </body>
 </html>

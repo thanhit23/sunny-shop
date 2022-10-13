@@ -1,11 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: tannguyen
- * Date: 9/25/22
- * Time: 9:22 PM
- */
-?>
 <footer class="section-t-space mt-3">
   <div class="container-fluid-lg">
     <div class="service-section">
@@ -56,7 +48,7 @@
           <div class="footer-logo">
             <div class="theme-logo">
               <a href="/home">
-                <img src="../../../resources/image/Sunny-Shop.png" class="blur-up lazyload" alt="">
+                <img src="../../../resources/images/Sunny-Shop.png" class="blur-up lazyload" alt="">
               </a>
             </div>
             <div class="footer-logo-contain">
@@ -80,13 +72,13 @@
           <div class="footer-contain">
             <ul>
               <li>
-                <a href="shop-left-sidebar.html" class="text-content">Vegetables & Fruit</a>
+                <a href="/categories?search=Iphone" class="text-content">Iphone</a>
               </li>
               <li>
-                <a href="shop-left-sidebar.html" class="text-content">Beverages</a>
+                <a href="/categories?search=Xiaomi" class="text-content">Xiaomi Redmi</a>
               </li>
               <li>
-                <a href="shop-left-sidebar.html" class="text-content">Meats & Seafood</a>
+                <a href="/categories?search=Samsung" class="text-content">Samsung</a>
               </li>
             </ul>
           </div>

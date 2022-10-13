@@ -8,23 +8,23 @@
 require_once ('pdo.php');
 
 function clientChangePassword($value, $email) {
-  $sql = "UPDATE `client` SET `password`=? WHERE email=?";
+  $sql = "UPDATE `user` SET `password`=? WHERE email=?";
   execute($sql, $value, $email);
 }
 
-function clientInsert($password, $name, $email) {
-//  $img = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNL_ZnOTpXSvhf1UaK7beHey2BX42U6solRA&usqp=CAU';
-  $sql = "INSERT INTO `client`(`id`, `password`, `full_name`, `active`, `image`, `email`, `role`) VALUES ('SN3',?,?,1,'',?,1)";
-  execute($sql, $password, $name, $email);
+function clientInsert($id, $password, $name, $email) {
+  $img = '["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNL_ZnOTpXSvhf1UaK7beHey2BX42U6solRA&usqp=CAU"]';
+  $sql = "INSERT INTO `user`(`id`, `password`, `full_name`, `active`, `image`, `email`, `role`) VALUES (?,?,?,1,$img,?,0)";
+  execute($sql, $id, $password, $name, $email);
 }
 
 function clientUpdate($name, $id) {
-  $sql = "UPDATE `client` SET `name`=? WHERE `id`=?";
+  $sql = "UPDATE `user` SET `name`=? WHERE `id`=?";
   execute($sql, $name, $id);
 }
 
 function clientDelete($id) {
-  $sql = "DELETE FROM `client` WHERE `id`=?";
+  $sql = "DELETE FROM `user` WHERE `id`=?";
   if(is_array($id)){
     foreach ($id as $idItem) {
       execute($sql, $idItem);
@@ -42,16 +42,16 @@ function clientDelete($id) {
 
 function clientSelectAll($cols, $where = 1) {
   $col = $cols ? $cols : '*';
-  $sql = "SELECT $col FROM `client` WHERE $where";
+  $sql = "SELECT $col FROM `user` WHERE $where";
   return query($sql);
 }
 
 function clientSelectById($id) {
-  $sql = "SELECT * FROM `client` WHERE `id`=?";
+  $sql = "SELECT * FROM `user` WHERE `id`=?";
   return queryOne($sql, $id);
 }
 
 function clientExist($id) {
-  $sql = "SELECT count(*) FROM `client` WHERE `id`=?";
+  $sql = "SELECT count(*) FROM `user` WHERE `id`=?";
   return queryValue($sql, $id) > 0;
 }

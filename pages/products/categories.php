@@ -8,13 +8,13 @@ session_start();
 <head>
   <title><?php echo $_GET['filter'] ?></title>
   <?php
-  require ('../templates/includes/helmet.php');
+  require ($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/helmet.php');
   ?>
   <link rel="stylesheet" href="/resources/css/header.css">
 </head>
 <body>
 <?php
-require ('../templates/includes/header.php');
+require ($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/header.php');
 ?>
 <section class="section-b-space shop-section">
   <div class="container-fluid-lg">
@@ -394,7 +394,7 @@ require ('../templates/includes/header.php');
   </div>
 </section>
 <?php
-require ('../templates/includes/footer.php');
+require ($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/footer.php');
 ?>
 </body>
 </html>

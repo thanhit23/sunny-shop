@@ -1,12 +1,12 @@
 <?php
-  require('../templates/includes/admin/helmet.php');
+  require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/helmet.php');
 ?>
 <body class="g-sidenav-show bg-gray-100">
   <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('../../resources/images/banner.png'); background-position-y: 50%;">
     <span class="mask bg-primary opacity-6"></span>
   </div>
   <?php
-    require('../templates/includes/admin/navbar-vertical.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/navbar-vertical.php');
   ?>
   <div class="main-content position-relative max-height-vh-100 h-100">
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2 mt-n11">
@@ -317,12 +317,12 @@
         </div>
       </div>
       <?php
-        require('../templates/includes/admin/footer.php');
+        require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/footer.php');
       ?>
     </div>
   </div>
   <?php
-    require('../templates/includes/admin/script.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/script.php');
   ?>
 </body>
 </html>

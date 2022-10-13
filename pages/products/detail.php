@@ -10,14 +10,14 @@ session_start();
 <head>
   <title>Sunny Shop</title>
   <?php
-  require('../templates/includes/helmet.php')
+  require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/helmet.php')
   ?>
   <link rel="stylesheet" href="/resources/css/header.css">
   <link rel="stylesheet" href="/resources/css/slide.css">
 </head>
 <body>
 <?php
-require('../templates/includes/header.php')
+require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/header.php')
 ?>
 <section class="breadscrumb-section pt-0">
   <div class="container-fluid-lg">
@@ -280,7 +280,7 @@ if ($result) {
 }
 ?>
 <?php
-require('../templates/includes/footer.php')
+require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/footer.php')
 ?>
 </body>
 </html>

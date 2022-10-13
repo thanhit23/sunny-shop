@@ -1,6 +1,5 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . '/PDO/product.php');
-require($_SERVER['DOCUMENT_ROOT'] . '/PDO/pdo.php');
 session_start();
 ?>
 <!doctype html>
@@ -8,14 +7,14 @@ session_start();
 <head>
   <title>Sunny Shop</title>
   <?php
-  require('../templates/includes/helmet.php')
+  require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/helmet.php')
   ?>
   <link rel="stylesheet" href="/resources/css/header.css">
   <link rel="stylesheet" href="/resources/css/slide.css">
 </head>
 <body>
 <?php
-require('../templates/includes/header.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/header.php');
 ?>
 <section class="product-section">
   <div class="container-fluid-lg">
@@ -23,7 +22,7 @@ require('../templates/includes/header.php');
       <div class="col-xxl-3 col-xl-4 d-none d-xl-block">
         <div class="p-sticky">
           <div class="category-menu">
-            <h3>Danh mục</h3>
+            <h3>Categories</h3>
             <ul>
               <li>
                 <div class="category-list">
@@ -128,7 +127,7 @@ require('../templates/includes/header.php');
         </div>
         <div id="products" class="title title-flex mt-3">
           <div>
-            <h2>Sản phẩm HOT nhất hôm nay</h2>
+            <h2>Today's Hottest Product</h2>
             <span class="title-leaf" style="width:370px;margin:0;"></span>
           </div>
         </div>
@@ -240,7 +239,7 @@ require('../templates/includes/header.php');
           </div>
         </div>
         <div class="title d-block">
-          <h2>Tìm Kiếm nhiều nhất</h2>
+          <h2>Top Search</h2>
           <span class="title-leaf"></span>
         </div>
         <div class="product-border overflow-hidden wow fadeInUp">
@@ -439,7 +438,7 @@ require('../templates/includes/header.php');
   </div>
 </section>
 <?php
-require('../templates/includes/footer.php')
+require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/footer.php')
 ?>
 <script src="../../resources/js/main.js"></script>
 </body>

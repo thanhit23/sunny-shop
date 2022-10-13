@@ -1,5 +1,5 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'] . '/PDO/client.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/PDO/user.php');
 session_start();
 $error = false;
   if(isset($_POST['btn-sign-up'])) {
@@ -9,7 +9,13 @@ $error = false;
       if (!$error) {
         $_SESSION['email'] = $value['email'];
         $_SESSION['fullName'] = $_POST['fullName'];
-        clientInsert($_POST['password'], $_POST['fullName'], $_POST['email']);
+        $result = clientSelectAll('id', '1 ORDER BY id DESC LIMIT 1');
+        if ($result) {
+          foreach ($result as $valueId) {
+            $id = (int) substr($valueId['id'], 2);
+          }
+        }
+        clientInsert('NV'.($id + 1), $_POST['password'], $_POST['fullName'], $_POST['email']);
         header('Location: /home');
       };
     }
@@ -20,14 +26,14 @@ $error = false;
 <head>
   <title>Sunny Shop</title>
   <?php
-  require('../templates/includes/helmet.php')
+  require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/helmet.php')
   ?>
   <link rel="stylesheet" href="/resources/css/header.css">
   <link rel="stylesheet" href="/resources/css/slide.css">
 </head>
 <body>
 <?php
-require('../templates/includes/header.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/header.php');
 ?>
 <section class="breadscrumb-section pt-0">
   <div class="container-fluid-lg">
