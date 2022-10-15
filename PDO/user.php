@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thanhNguyen
- * Date: 10/3/22
- * Time: 8:26 PM
- */
 require_once ('pdo.php');
 
 function clientChangePassword($value, $email) {
@@ -14,8 +8,8 @@ function clientChangePassword($value, $email) {
 
 function clientInsert($id, $password, $name, $email) {
   $img = '["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNL_ZnOTpXSvhf1UaK7beHey2BX42U6solRA&usqp=CAU"]';
-  $sql = "INSERT INTO `user`(`id`, `password`, `full_name`, `active`, `image`, `email`, `role`) VALUES (?,?,?,1,$img,?,0)";
-  execute($sql, $id, $password, $name, $email);
+  $sql = "INSERT INTO `user`(`id`, `password`, `full_name`, `active`, `image`, `email`, `role`) VALUES (?,?,?,1,?,?,0)";
+  execute($sql, $id, $password, $name, $img, $email);
 }
 
 function clientUpdate($name, $id) {

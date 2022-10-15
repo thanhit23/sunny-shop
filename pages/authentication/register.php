@@ -15,7 +15,7 @@ $error = false;
             $id = (int) substr($valueId['id'], 2);
           }
         }
-        clientInsert('NV'.($id + 1), $_POST['password'], $_POST['fullName'], $_POST['email']);
+        clientInsert('SN'.($id + 1), $_POST['password'], $_POST['fullName'], $_POST['email']);
         header('Location: /home');
       };
     }

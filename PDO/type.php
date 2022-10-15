@@ -1,5 +1,4 @@
 <?php
-require_once './pdo.php';
 
 function typeInsert($name) {
   $sql = "INSERT INTO `type`(`name`) VALUES (?)";

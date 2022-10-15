@@ -2,6 +2,7 @@
 if (isset($_POST['logout'])) {
   $_SESSION['email'] = null;
   $_SESSION['fullName'] = null;
+  $_SESSION['idUser'] = null;
 }
 ?>
 <header class="pb-md-4 pb-0" style="background-color: #f8f8f8;">
@@ -57,25 +58,12 @@ if (isset($_POST['logout'])) {
                     <div class="onhover-div">
                       <ul class="cart-list">
                         <li class="product-box-contain">
-                          <div class="drop-cart">
-                            <a href="product-left.html" class="drop-image">
-                              <img src="https://themes.pixelstrap.com/fastkart/assets/images/vegetable/product/1.png" class="blur-up lazyload" alt="">
-                            </a>
-                            <div class="drop-contain">
-                              <a href="product-left.html">
-                                <h5>Fantasy Crunchy Choco Chip Cookies</h5>
-                              </a>
-                              <h6><span>1 x</span> $80.58</h6>
-                              <button class="close-button close_button">
-                                <i class="fa-solid fa-xmark"></i>
-                              </button>
-                            </div>
-                          </div>
+                          <p>Chưa có Sản Phẩm </p>
                         </li>
                       </ul>
                       <div class="price-box">
                         <h5>Total :</h5>
-                        <h4 class="theme-color fw-bold">$106.58</h4>
+                        <h4 class="theme-color fw-bold">$0</h4>
                       </div>
                       <div class="button-group">
                         <a href="/cart" class="btn btn-sm cart-button">View Cart</a>
@@ -161,21 +149,6 @@ if (isset($_POST['logout'])) {
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#products"
                          data-bs-toggle="dropdown">Product</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="javascript:void(0)"
-                         data-bs-toggle="dropdown">Blog</a>
-                      <ul class="dropdown-menu">
-                        <li>
-                          <a class="dropdown-item" href="blog-detail.html">Blog Detail</a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="blog-grid.html">Blog Grid</a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="blog-list.html">Blog List</a>
-                        </li>
-                      </ul>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link nav-link-2" href="contact-us.html">Contact</a>

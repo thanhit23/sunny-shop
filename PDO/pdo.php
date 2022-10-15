@@ -1,11 +1,4 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: thanhNguyen
- * Date: 9/30/22
- * Time: 7:56 PM
- */
 class DbConnect
 {
   private $host = "db";
