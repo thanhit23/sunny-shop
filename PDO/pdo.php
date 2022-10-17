@@ -1,11 +1,4 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: thanhNguyen
- * Date: 9/30/22
- * Time: 7:56 PM
- */
 class DbConnect
 {
   private $host = "db";
@@ -49,8 +42,7 @@ function execute($sql)
   try {
     $db = new DbConnect();
     $conn = $db->connect();
-    $stmt = $conn->prepare($sql);
-    $stmt->execute($sql_args);
+    $conn->prepare($sql)->execute($sql_args);
   } catch (PDOException $e) {
     throw $e;
   } finally {

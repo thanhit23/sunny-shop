@@ -1,26 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tannguyen
- * Date: 10/5/22
- * Time: 10:34 PM
- */
-require('../../PDO/pdo.php');
-require ('../../PDO/commodity.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/PDO/product.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/PDO/pdo.php');
+session_start();
 ?>
 <!doctype html>
 <html lang="en">
 <head>
   <title><?php echo $_GET['filter'] ?></title>
   <?php
-  require ('../templates/includes/helmet.php');
+  require ($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/helmet.php');
   ?>
   <link rel="stylesheet" href="/resources/css/header.css">
-
 </head>
 <body>
 <?php
-require ('../templates/includes/header.php');
+require ($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/header.php');
 ?>
 <section class="section-b-space shop-section">
   <div class="container-fluid-lg">
@@ -39,14 +33,13 @@ require ('../templates/includes/header.php');
               </div>
               <ul>
                 <li>
-                  <a href="javascript:void(0)"><?php echo $_GET['filter'] ?></a>
+                  <a href="javascript:void(0)"><?php echo $_GET['search'] ?></a>
                 </li>
                 <li>
                   <a href="javascript:void(0)">Điện Thoạt</a>
                 </li>
               </ul>
             </div>
-
             <div class="accordion custome-accordion" id="accordionExample">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
@@ -206,7 +199,6 @@ require ('../templates/includes/header.php');
           </div>
         </div>
       </div>
-
       <div class="col-xxl-9 col-lg-8">
         <div class="show-button">
           <div class="filter-button-group mt-0">
@@ -239,7 +231,7 @@ require ('../templates/includes/header.php');
         </div>
         <div class="row g-sm-4 g-3 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-2 product-list-section">
           <?php
-          $filter = $_GET['filter'];
+          $filter = $_GET['search'];
           $result = commoditySelectAll("name LIKE '%$filter%'");
           if ($result) {
             foreach ($result as $value) {
@@ -402,7 +394,7 @@ require ('../templates/includes/header.php');
   </div>
 </section>
 <?php
-require ('../templates/includes/footer.php');
+require ($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/footer.php');
 ?>
 </body>
 </html>

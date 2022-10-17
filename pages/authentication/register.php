@@ -1,22 +1,23 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thanhnguyen
- * Date: 9/26/22
- * Time: 11:44 PM
- */
-require_once ('../../PDO/client.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/PDO/user.php');
+session_start();
 $error = false;
   if(isset($_POST['btn-sign-up'])) {
     $result = clientSelectAll('email');
-    echo $result;
     foreach($result as $value) {
-      if ($_POST['email'] === $value['email']) {
-        $error = true;
-      } else {
-        $error = false;
-        clientInsert($_POST['password'], $_POST['fullname'], $_POST['email']);
-      }
+      if ($_POST['email'] === $value['email']) $error = true;
+      if (!$error) {
+        $_SESSION['email'] = $value['email'];
+        $_SESSION['fullName'] = $_POST['fullName'];
+        $result = clientSelectAll('id', '1 ORDER BY id DESC LIMIT 1');
+        if ($result) {
+          foreach ($result as $valueId) {
+            $id = (int) substr($valueId['id'], 2);
+          }
+        }
+        clientInsert('SN'.($id + 1), $_POST['password'], $_POST['fullName'], $_POST['email']);
+        header('Location: /home');
+      };
     }
   }
 ?>
@@ -25,14 +26,14 @@ $error = false;
 <head>
   <title>Sunny Shop</title>
   <?php
-  require('../templates/includes/helmet.php')
+  require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/helmet.php')
   ?>
   <link rel="stylesheet" href="/resources/css/header.css">
   <link rel="stylesheet" href="/resources/css/slide.css">
 </head>
 <body>
 <?php
-require('../templates/includes/header.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/header.php');
 ?>
 <section class="breadscrumb-section pt-0">
   <div class="container-fluid-lg">
@@ -69,18 +70,14 @@ require('../templates/includes/header.php');
           <div class="log-in-title">
             <h3>Welcome To Fastkart</h3>
             <h4>Create New Account</h4>
-            <?php
-              if ($error) {
-                echo "<h4>Email tồn tại</h4>";
-              }
-            ?>
+            <?php if ($error) echo "<h4 style='color: red'>Email tồn tại</h4>";?>
           </div>
           <div class="input-box">
             <form method="post" class="row g-4">
               <div class="col-12">
                 <div class="form-floating theme-form-floating">
-                  <input type="text" class="form-control" id="fullname" placeholder="Full Name" name="fullname">
-                  <label for="fullname">Full Name</label>
+                  <input type="text" class="form-control" id="fullName" placeholder="Full Name" name="fullName">
+                  <label for="fullName">Full Name</label>
                 </div>
               </div>
               <div class="col-12">
