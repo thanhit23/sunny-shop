@@ -252,21 +252,21 @@ if ($result) {
             <div class="product-section-box m-0">
               <ul class="nav nav-tabs custom-nav" id="myTab" role="tablist">
                   <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="false">Description</button>
+                      <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="false">Description</button>
                   </li>
                   <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false">Review</button>
+                      <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false">Review</button>
                   </li>
               </ul>
               <div class="tab-content custom-tab" id="myTabContent">
-                <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="description-tab">
+                <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
                   <div class="product-description">
                     <div class="nav-desh">
                       <p><?php echo $value['description'] ?></p>
                     </div>
                   </div>
                 </div>
-                <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
+                <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                     <div class="review-box">
                         <div class="row g-4">
                             <div class="col-xl-6">
