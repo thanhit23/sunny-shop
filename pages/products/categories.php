@@ -1,6 +1,5 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . '/PDO/product.php');
-require($_SERVER['DOCUMENT_ROOT'] . '/PDO/pdo.php');
 session_start();
 ?>
 <!doctype html>

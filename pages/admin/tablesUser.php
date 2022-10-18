@@ -1,27 +1,10 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'] . '/PDO/product.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/PDO/user.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/helmet.php');
-$idDelete = (int) $_GET['IdDelete'];
-
 ?>
 <body class="g-sidenav-show bg-gray-100">
 <div class="min-height-300 bg-primary position-absolute w-100"></div>
 <?php
-if ($idDelete) {
-  commodityDelete($idDelete);
-  echo '<script type="text/javascript">toastr.success("Delete Successfully")</script>';
-}
-if (isset($_POST['btn-update'])) {
-  $idUpdate = (int) $_GET['IdUpdate'];
-  $name = $_POST['nameProduct'];
-  $price = floatval($_POST['priceProduct']);
-  $discount = floatval($_POST['discountProduct']);
-  $description = $_POST['descriptionProduct'];
-  $view = (int) $_POST['viewProduct'];
-  $type = (int) $_POST['type'];
-  commodityUpdate($name, $price, $discount, $description, $view, $type, $idUpdate);
-  echo '<script type="text/javascript">toastr.success("Update Successfully")</script>';
-}
 require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/navbar-vertical.php');
 ?>
 <main class="main-content position-relative border-radius-lg ">
@@ -31,9 +14,9 @@ require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/navbar-vert
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
           <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="/admin">Pages</a></li>
-          <li class="breadcrumb-item text-sm text-white active" aria-current="page">Product</li>
+          <li class="breadcrumb-item text-sm text-white active" aria-current="page"></li>
         </ol>
-        <h6 class="font-weight-bolder text-white mb-0">Product</h6>
+        <h6 class="font-weight-bolder text-white mb-0">Users</h6>
       </nav>
       <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
         <div class="ms-md-auto pe-md-3 d-flex align-items-center"></div>
@@ -73,63 +56,46 @@ require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/navbar-vert
       <div class="col-12">
         <div class="card mb-4">
           <div class="card-header pb-0">
-            <h6>Products table</h6>
+            <h6>User Manager</h6>
           </div>
           <div class="card-body px-0 pt-0 pb-2">
             <div class="table-responsive p-0">
               <table class="table align-items-center mb-0">
                 <thead>
                 <tr>
-                  <th class="text-secondary opacity-7">STT</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Giá</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Hình Ảnh</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ngày Nhập</th>
-                  <th class="text-secondary opacity-7"></th>
+                  <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">ID</th>
+                  <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Name</th>
+                  <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
+                  <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ps-2">Avatar</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-                $result = commodityPagination('0,10');
+                $result = clientSelectAll('*');
                 if ($result) {
-                  $index = 0;
                   foreach ($result as $value) {
-                    $index++;
-                    $name = $value['name'];
-                    $createAt = $value['create_at'];
-                    $unit_price = number_format($value['unit_price'], 0);
-                    $db = $value['image'];
-                    $img = json_decode($db);
+                    $id = $value['id'];
+                    $name = $value['full_name'];
+                    $imageDb = $value['image'];
+                    $img = json_decode($imageDb, true);
+                    $email = $value['email'];
                     ?>
                   <tr>
-                    <td class="align-middle" style="padding-left: 1.5rem;">
-                      <?php echo $index ?>
+                    <td>
+                      <p class="text-xs text-center font-weight-bold mb-0"><?= $id ?></p>
                     </td>
                     <td>
                       <div class="d-flex px-2 py-1">
                         <div class="d-flex flex-column justify-content-center">
-                          <h6 class="mb-0 text-sm"><?php echo $name ?></h6>
+                          <h6 class="mb-0 text-sm"><?= $name ?></h6>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <p class="text-xs font-weight-bold mb-0"><?php echo $unit_price. ' đ' ?></p>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                      <div>
-                        <img src="<?php echo $img[0] ?>" class="avatar avatar-sm me-3" alt="user1">
-                      </div>
+                      <p class="text-xs text-center font-weight-bold mb-0"><?= $email ?></p>
                     </td>
                     <td class="align-middle text-center">
-                      <span class="text-secondary text-xs font-weight-bold"><?php echo $createAt ?></span>
-                    </td>
-                    <td class="align-middle">
-                      <a href="./tables.php?IdUpdate=<?php echo $value['id'] ?>">
-                        <span class="badge badge-sm bg-gradient-primary">Edit</span>
-                      </a>
-                      <a href="./tables.php?IdDelete=<?php echo $value['id'] ?>">
-                        <button style="border: none;" name="btn-delete" class="badge badge-sm bg-gradient-danger">Delete</button>
-                      </a>
+                      <img width="40" height="40" src="<?= $img[0] ?>" />
                     </td>
                   </tr>
                 <?php

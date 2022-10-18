@@ -34,9 +34,8 @@ function clientDelete($id) {
  * @return array
  */
 
-function clientSelectAll($cols, $where = 1) {
-  $col = $cols ? $cols : '*';
-  $sql = "SELECT $col FROM `user` WHERE $where";
+function clientSelectAll($cols = '*', $where = 1) {
+  $sql = "SELECT $cols FROM `user` WHERE $where";
   return query($sql);
 }
 

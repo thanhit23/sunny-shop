@@ -9,7 +9,7 @@
                 <img src="https://themes.pixelstrap.com/fastkart/assets/svg/product.svg" class="blur-up lazyload" alt="">
               </div>
               <div class="service-detail">
-                <h5>Every Fresh Products</h5>
+                <h5>Every Good Products</h5>
               </div>
             </div>
             <div class="service-box">
@@ -109,7 +109,7 @@
                   <i data-feather="phone"></i>
                   <div class="contact-number">
                     <h6 class="text-content">Hotline 24/7 :</h6>
-                    <h5>+91 888 104 2340</h5>
+                    <h5>+84 888 104 2340</h5>
                   </div>
                 </div>
               </li>
