@@ -28,6 +28,7 @@ function commentDelete($id) {
   }
 }
 
+
 function selectAllCommentAndUser($idProduct) {
   $sql = "SELECT * FROM `comment` INNER JOIN user ON user.id = comment.id_user WHERE id_product = $idProduct;";
   return query($sql);
