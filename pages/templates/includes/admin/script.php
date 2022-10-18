@@ -1,8 +1,8 @@
-<script src="../../resources/js/core/popper.min.js"></script>
-<script src="../../resources/js/core/bootstrap.min.js"></script>
-<script src="../../resources/js/plugins/perfect-scrollbar.min.js"></script>
-<script src="../../resources/js/plugins/smooth-scrollbar.min.js"></script>
-<script src="../../resources/js/plugins/chartjs.min.js"></script>
+<script src="../../../../resources/js/core/popper.min.js"></script>
+<script src="../../../../resources/js/core/bootstrap.min.js"></script>
+<script src="../../../../resources/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="../../../../resources/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="../../../../resources/js/plugins/chartjs.min.js"></script>
 <script>
     var ctx1 = document.getElementById("chart-line").getContext("2d");
 
@@ -96,4 +96,4 @@
     }
 </script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-<script src="../../resources/js/argon-dashboard.min.js?v=2.0.4"></script>
+<script src="../../../../resources/js/argon-dashboard.min.js?v=2.0.4"></script>

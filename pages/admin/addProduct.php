@@ -12,7 +12,27 @@ if (isset($_POST['btn-submit'])) {
   $special = (int) $_POST['special'];
   $view = (int) $_POST['view'];
   $type = (int) $_POST['type'];
-  productInsert($name, $price, $discount, '["/resources/images/uploads/'.$image.'"]', $description, $special, $view, $type);
+  if ($name === '') {
+    $validateName = true;
+  }
+  if ($price === 0) {
+    $validatePrice = true;
+  }
+  if ($discount === 0) {
+    $validateDiscount = true;
+  }
+  if ($description === '') {
+    $validateDescription = true;
+  }
+  if ($special === '') {
+    $validateSpecial = true;
+  }
+  if ($view === 0) {
+    $validateView = true;
+  }
+  if (!$validateName && !$price && !$description && !$special) {
+    productInsert($name, $price, $discount, '["/resources/images/uploads/'.$image.'"]', $description, $special, $view, $type);
+  }
 }
 ?>
 <body class="g-sidenav-show bg-gray-100">
@@ -153,18 +173,30 @@ require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/navbar-vert
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Tên</label>
                     <input name="name" class="form-control" type="text" placeholder="Tên Sản Phẩm...">
+                    <?php if ($validateName) {
+                      echo '<p style="color:red;">Vui lòng nhập ít nhất một ký tự</p>';
+                    }
+                    ?>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Đơn Giá</label>
                     <input name="price" class="form-control" type="number" placeholder="Đơn Giá...">
+                    <?php if ($validatePrice) {
+                      echo '<p style="color:red;">Vui lòng nhập ít nhất một ký tự</p>';
+                    }
+                    ?>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Giảm Giá</label>
                     <input name="discount" class="form-control" type="number" placeholder="Giảm Giá...">
+                    <?php if ($validateDiscount) {
+                      echo '<p style="color:red;">Vui lòng nhập ít nhất một số</p>';
+                    }
+                    ?>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -179,12 +211,20 @@ require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/navbar-vert
                       Mô tả
                       <textarea name="description" rows="6" cols="45"></textarea>
                     </label>
+                    <?php if ($validateDescription) {
+                      echo '<p style="color:red;">Vui lòng nhập ít nhất một ký tự</p>';
+                    }
+                    ?>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Lượt Xem</label>
                     <input name="view" class="form-control" type="number" placeholder="Lượt Xem Của Sản Phẩm...">
+                    <?php if ($validateView) {
+                      echo '<p style="color:red;">Vui lòng nhập ít nhất một ký tự</p>';
+                    }
+                    ?>
                   </div>
                 </div>
                 <div class="col-md-6">

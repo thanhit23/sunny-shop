@@ -13,6 +13,11 @@ session_start();
   ?>
   <link rel="stylesheet" href="/resources/css/header.css">
   <link rel="stylesheet" href="/resources/css/slide.css">
+  <style>
+    .slick-slide .slick-active{
+      width: 100% !important;
+    }
+  </style>
 </head>
 <body>
 <?php
@@ -81,7 +86,7 @@ if ($result) {
                         <?php
                           foreach ($img as $valueImg) {
                             ?>
-                            <div>
+                            <div class="w-100">
                                 <div class="sidebar-image">
                                   <img src="<?php echo $valueImg ?>"
                                        class="img-fluid blur-up lazyload" alt="">
@@ -455,8 +460,6 @@ if ($result) {
     <?php
   }
 }
-?>
-<?php
 require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/footer.php')
 ?>
 </body>

@@ -1,10 +1,15 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . '/PDO/user.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/helmet.php');
+$idDelete = $_GET['IdDelete'];
 ?>
 <body class="g-sidenav-show bg-gray-100">
 <div class="min-height-300 bg-primary position-absolute w-100"></div>
 <?php
+if ($idDelete) {
+  clientDelete($idDelete);
+  echo '<script type="text/javascript">toastr.success("Delete Successfully")</script>';
+}
 require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/navbar-vertical.php');
 ?>
 <main class="main-content position-relative border-radius-lg ">
@@ -67,11 +72,12 @@ require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/navbar-vert
                   <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Name</th>
                   <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
                   <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ps-2">Avatar</th>
+                  <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ps-2">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-                $result = clientSelectAll('*');
+                $result = clientSelectAll('*', 'role = 0');
                 if ($result) {
                   foreach ($result as $value) {
                     $id = $value['id'];
@@ -97,6 +103,14 @@ require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/navbar-vert
                     <td class="align-middle text-center">
                       <img width="40" height="40" src="<?= $img[0] ?>" />
                     </td>
+<<<<<<< HEAD
+=======
+                    <td class="align-middle text-center">
+                      <a href="./tablesUser.php?IdDelete=<?php echo $value['id'] ?>">
+                        <button style="border: none;" name="btn-delete" class="badge badge-sm bg-gradient-danger">Delete</button>
+                      </a>
+                    </td>
+>>>>>>> 5928656 (Delete unnecessary file)
                   </tr>
                 <?php
                   }

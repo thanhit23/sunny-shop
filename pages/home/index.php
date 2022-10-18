@@ -204,7 +204,6 @@ require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/header.php');
                                 <i data-feather="star"></i>
                               </li>
                             </ul>
-
                             <h6 class="theme-color">In Stock</h6>
                           </div>
                           <div class="add-to-cart-box">
@@ -315,7 +314,6 @@ require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/header.php');
 
                               <h6 class="theme-color">In Stock</h6>
                             </div>
-
                             <div class="add-to-cart-box">
                               <button class="btn btn-add-cart addcart-button">Add
                                 <i class="fa-solid fa-plus"></i></button>
