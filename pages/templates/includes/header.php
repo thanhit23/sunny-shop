@@ -50,15 +50,15 @@ if (isset($_POST['logout'])) {
                   <div class="onhover-dropdown header-badge">
                     <button type="button" class="btn p-0 position-relative header-wishlist">
                       <i data-feather="shopping-cart"></i>
-                      <span class="position-absolute top-0 start-100 translate-middle badge">
-                        2
+                      <!-- <span class="position-absolute top-0 start-100 translate-middle badge">
+                        0
                         <span class="visually-hidden">unread messages</span>
-                      </span>
+                      </span> -->
                     </button>
                     <div class="onhover-div">
                       <ul class="cart-list">
                         <li class="product-box-contain">
-                          <p>Chưa có Sản Phẩm </p>
+                          <p>No Product</p>
                         </li>
                       </ul>
                       <div class="price-box">

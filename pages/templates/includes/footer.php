@@ -9,7 +9,7 @@
                 <img src="https://themes.pixelstrap.com/fastkart/assets/svg/product.svg" class="blur-up lazyload" alt="">
               </div>
               <div class="service-detail">
-                <h5>Every Fresh Products</h5>
+                <h5>Every Good Products</h5>
               </div>
             </div>
             <div class="service-box">
