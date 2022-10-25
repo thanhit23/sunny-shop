@@ -7,6 +7,11 @@ function insertComment($content, $id_product, $id_user) {
   execute($sql, $content, $id_product, $id_user, $createAt);
 }
 
+function commentStatistical() {
+  $sql = "select max(comment.create_at) as newest, min(comment.create_at) as oldest, count(comment.id) as amount, products.name, products.id from products join comment on products.id = comment.id_product GROUP by comment.id_product";
+  return query($sql);
+}
+
 function commentUpdate($name, $price, $discount, $description, $view, $type, $id) {
   $sql = "UPDATE `products` SET `name`=?,`unit_price`=?,`discount`=?,`description`=?,`view`=?,`id_type`=? WHERE `id`=?";
   execute($sql, $name, $price, $discount, $description, $view, $type, $id);

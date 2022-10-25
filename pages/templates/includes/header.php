@@ -3,6 +3,7 @@ if (isset($_POST['logout'])) {
   $_SESSION['email'] = null;
   $_SESSION['fullName'] = null;
   $_SESSION['idUser'] = null;
+  $_SESSION['role'] = null;
 }
 ?>
 <header class="pb-md-4 pb-0" style="background-color: #f8f8f8;">
@@ -95,17 +96,29 @@ if (isset($_POST['logout'])) {
                     <form method="post">
                       <ul class="user-box-name">
                         <?php
-                        if ($_SESSION['fullName']) {
+                        if ($_SESSION['role']) {
                           ?>
-                            <li class="product-box-contain">
-                              <a href="/forgot">Forgot Password</a>
-                            </li>
-                            <li class="product-box-contain">
-                              <a><button class="btn-logout" name="logout">logout</button></a>
-                            </li>
+                          <li class="product-box-contain">
+                            <a href="/pages/admin/index.php">Administrators</a>
+                          </li>
+                          <li class="product-box-contain">
+                            <a href="/forgot">Forgot Password</a>
+                          </li>
+                          <li class="product-box-contain">
+                            <a><button class="btn-logout" name="logout">logout</button></a>
+                          </li>
+                          <?php
+                        } else if ($_SESSION['fullName']) {
+                          ?>
+                          <li class="product-box-contain">
+                            <a href="/forgot">Forgot Password</a>
+                          </li>
+                          <li class="product-box-contain">
+                            <a><button class="btn-logout" name="logout">logout</button></a>
+                          </li>
                           <?php
                         } else {
-                        ?>
+                          ?>
                           <li class="product-box-contain">
                             <i></i>
                             <a href="/login">Log In</a>
@@ -113,7 +126,7 @@ if (isset($_POST['logout'])) {
                           <li class="product-box-contain">
                             <a href="/signup">Register</a>
                           </li>
-                        <?php
+                          <?php
                         }
                         ?>
                       </ul>

@@ -3,22 +3,28 @@ require($_SERVER['DOCUMENT_ROOT'] . '/PDO/user.php');
 session_start();
 $error = false;
   if(isset($_POST['btn-sign-up'])) {
-    $result = clientSelectAll('email');
+    $result = clientSelectAll('email, role');
     foreach($result as $value) {
-      if ($_POST['email'] === $value['email']) $error = true;
-      if (!$error) {
-        $_SESSION['email'] = $value['email'];
-        $_SESSION['fullName'] = $_POST['fullName'];
-        $result = clientSelectAll('id', '1 ORDER BY id DESC LIMIT 1');
-        if ($result) {
-          foreach ($result as $valueId) {
-            $id = (int) substr($valueId['id'], 2);
-          }
-        }
-        clientInsert('SN'.($id + 1), $_POST['password'], $_POST['fullName'], $_POST['email']);
-        header('Location: /home');
+      if ($_POST['email'] === $value['email']) {
+        $error = true;
+      } else {
+
       };
     }
+    if (!$error) {
+      $_SESSION['role'] = null;
+      $_SESSION['email'] = $_POST['email'];
+      $_SESSION['fullName'] = $_POST['fullName'];
+      $result = clientSelectAll('id', '1 ORDER BY id DESC LIMIT 1');
+      if ($result) {
+        foreach ($result as $valueId) {
+          $id = (int) substr($valueId['id'], 2);
+        }
+      }
+      $_SESSION[''] = 'SN'.($id + 1);
+      clientInsert('SN'.($id + 1), $_POST['password'], $_POST['fullName'], $_POST['email']);
+      header('Location: /home');
+    };
   }
 ?>
 <!doctype html>

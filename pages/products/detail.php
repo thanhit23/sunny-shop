@@ -189,11 +189,10 @@ if ($result) {
               <div class="vendor-box">
                 <div class="verndor-contain">
                   <div class="vendor-image">
-                    <img src="https://themes.pixelstrap.com/fastkart/assets/images/product/vendor.png"
-                         class="blur-up lazyload" alt="">
+                    <img src="../../resources/images/Sunny-Shop.png" class="blur-up lazyload" alt="">
                   </div>
                   <div class="vendor-name">
-                    <h5 class="fw-500">Noodles Co.</h5>
+                    <h5 class="fw-500">Sunny Co.</h5>
                     <div class="product-rating mt-1">
                       <ul class="rating">
                         <li>
@@ -221,13 +220,13 @@ if ($result) {
                     <li>
                       <div class="address-contact">
                         <i data-feather="map-pin"></i>
-                        <h5>Address: <span class="text-content">1288 Franklin Avenue</span></h5>
+                        <h5>Address: <span class="text-content">65 Sơn Thủy 3, Hoà Hải, Ngũ Hành Sơn, Đà Nẵng 550000, Vietnam</span></h5>
                       </div>
                     </li>
                     <li>
                       <div class="address-contact">
                         <i data-feather="headphones"></i>
-                        <h5>Contact Seller: <span class="text-content">(+1)-123-456-789</span></h5>
+                        <h5>Contact Seller: <span class="text-content">(+84)-123-456-789</span></h5>
                       </div>
                     </li>
                   </ul>
@@ -236,7 +235,7 @@ if ($result) {
               <div class="pt-25">
                 <div class="hot-line-number">
                   <h5>Hotline Order:</h5>
-                  <h6>Mon - Fri: 07:00 am - 08:30PM</h6>
+                  <h6>Mon - Fri: 07:00 am - 11:30PM</h6>
                   <h3>(+1) 123 456 789</h3>
                 </div>
               </div>

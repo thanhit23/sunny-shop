@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main" style="height: auto;">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link active" href="/pages/admin/index.php" style="background-color: transparent;">
+        <a class="nav-link" href="/pages/admin/index.php">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
           </div>
@@ -26,23 +26,31 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="/pages/admin/product/list">
-          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
-          </div>
-          <span class="nav-link-text ms-1">Edit Products</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="/pages/admin/product/index.php">
+        <a class="nav-link " href="/pages/admin/addProduct.php">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Add Products</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/pages/admin/tablesComment.php">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Comments</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/pages/admin/tablesUser.php">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Users</span>
+        </a>
+      </li>
       <li class="nav-item mt-3">
-        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Group member profile</h6>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="/pages/admin/profile.php">

@@ -1,4 +1,6 @@
 <?php
+  session_start();
+  echo $_SESSION['idUser'];
   require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/helmet.php');
 ?>
 <body class="g-sidenav-show bg-gray-100">
@@ -11,7 +13,7 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:">Pages</a></li>
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
           </ol>
           <h6 class="font-weight-bolder text-white mb-0">Dashboard</h6>
@@ -20,13 +22,12 @@
           <div class="ms-md-auto pe-md-3 d-flex align-items-center"></div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
+              <a href="javascript:" class="nav-link text-white font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Sign In</span>
               </a>
             </li>
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
+              <a href="javascript:" class="nav-link text-white p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
                   <i class="sidenav-toggler-line bg-white"></i>
                   <i class="sidenav-toggler-line bg-white"></i>
@@ -35,17 +36,17 @@
               </a>
             </li>
             <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-white p-0">
+              <a href="javascript:" class="nav-link text-white p-0">
                 <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
               </a>
             </li>
             <li class="nav-item dropdown pe-2 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              <a href="javascript:" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-bell cursor-pointer"></i>
               </a>
               <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                 <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
+                  <a class="dropdown-item border-radius-md" href="javascript:">
                     <div class="d-flex py-1">
                       <div class="my-auto">
                         <img src="../../resources/images/team-2.jpg" class="avatar avatar-sm  me-3 ">
@@ -63,7 +64,7 @@
                   </a>
                 </li>
                 <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
+                  <a class="dropdown-item border-radius-md" href="javascript:">
                     <div class="d-flex py-1">
                       <div class="my-auto">
                         <img src="../../resources/images/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
@@ -81,7 +82,7 @@
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
+                  <a class="dropdown-item border-radius-md" href="javascript:">
                     <div class="d-flex py-1">
                       <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
                         <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -229,56 +230,29 @@
                 <span class="font-weight-bold">4% more</span> in 2021
               </p>
             </div>
+<!--            <div class="card-body p-3">-->
+<!--              <div class="chart">-->
+<!--                <canvas id="chart-line" class="chart-canvas" height="300"></canvas>-->
+<!--              </div>-->
+<!--            </div>-->
             <div class="card-body p-3">
               <div class="chart">
-                <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
+                <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-5">
-          <div class="card card-carousel overflow-hidden h-100 p-0">
-            <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
-              <div class="carousel-inner border-radius-lg h-100">
-                <div class="carousel-item h-100 active" style="background-image: url('../../resources/images/carousel-1.jpg');
-        background-size: cover;">
-                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
-                    <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-                      <i class="ni ni-camera-compact text-dark opacity-10"></i>
-                    </div>
-                    <h5 class="text-white mb-1">Get started with Argon</h5>
-                    <p>There’s nothing I really wanted to do in life that I wasn’t able to get good at.</p>
-                  </div>
-                </div>
-                <div class="carousel-item h-100" style="background-image: url('../../resources/images/carousel-2.jpg');
-        background-size: cover;">
-                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
-                    <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-                      <i class="ni ni-bulb-61 text-dark opacity-10"></i>
-                    </div>
-                    <h5 class="text-white mb-1">Faster way to create web pages</h5>
-                    <p>That’s my skill. I’m not really specifically talented at anything except for the ability to learn.</p>
-                  </div>
-                </div>
-                <div class="carousel-item h-100" style="background-image: url('../../resources/images/carousel-3.jpg');
-        background-size: cover;">
-                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
-                    <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-                      <i class="ni ni-trophy text-dark opacity-10"></i>
-                    </div>
-                    <h5 class="text-white mb-1">Share with us your design tips!</h5>
-                    <p>Don’t be afraid to be wrong because you can’t learn anything from a compliment.</p>
-                  </div>
-                </div>
+            <div class="d-flex mb-3">
+              <div class="d-flex mx-4 align-items-center">
+                <div class="bg-danger" style="width:30px;height:20px;margin-right:5px"></div>
+                <p class="m-0">Iphone</p>
               </div>
-              <button class="carousel-control-prev w-5 me-3" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next w-5 me-3" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+              <div class="d-flex mx-4 align-items-center">
+                <div style="background-color:#008002;width:30px;height:20px;margin-right:5px"></div>
+                <p class="m-0">SamSung</p>
+              </div>
+              <div class="d-flex mx-4 align-items-center">
+                <div style="background-color:#0800ff;width:30px;height:20px;margin-right:5px"></div>
+                <p class="m-0">Xiaomi</p>
+              </div>
             </div>
           </div>
         </div>
@@ -298,7 +272,7 @@
                   <td class="w-30">
                     <div class="d-flex px-2 py-1 align-items-center">
                       <div>
-                        <img src="../../resources/images/icons/flags/US.png" alt="Country flag">
+                        <img width="100" height="55" src="../../resources/images/flag/United_States.png" alt="Country flag">
                       </div>
                       <div class="ms-4">
                         <p class="text-xs font-weight-bold mb-0">Country:</p>
@@ -329,7 +303,7 @@
                   <td class="w-30">
                     <div class="d-flex px-2 py-1 align-items-center">
                       <div>
-                        <img src="../../resources/images/icons/flags/DE.png" alt="Country flag">
+                        <img width="100" height="55" src="../../resources/images/flag/Germany.jpeg" alt="Country flag">
                       </div>
                       <div class="ms-4">
                         <p class="text-xs font-weight-bold mb-0">Country:</p>
@@ -360,7 +334,7 @@
                   <td class="w-30">
                     <div class="d-flex px-2 py-1 align-items-center">
                       <div>
-                        <img src="../../resources/images/icons/flags/GB.png" alt="Country flag">
+                        <img width="100" height="55" src="../../resources/images/flag/Great_Britain%20.jpeg" alt="Country flag">
                       </div>
                       <div class="ms-4">
                         <p class="text-xs font-weight-bold mb-0">Country:</p>
@@ -391,7 +365,7 @@
                   <td class="w-30">
                     <div class="d-flex px-2 py-1 align-items-center">
                       <div>
-                        <img src="../../resources/images/icons/flags/BR.png" alt="Country flag">
+                        <img width="100" height="55" src="../../resources/images/flag/Brasil.png" alt="Country flag">
                       </div>
                       <div class="ms-4">
                         <p class="text-xs font-weight-bold mb-0">Country:</p>
@@ -496,6 +470,31 @@
       ?>
     </div>
   </main>
+  <script>
+      const xValues = [100,200,300,400,500,600,700,800,900,1000];
+      new Chart("myChart", {
+          type: "line",
+          data: {
+              labels: xValues,
+              datasets: [{
+                  data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+                  borderColor: "red",
+                  fill: false
+              }, {
+                  data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+                  borderColor: "green",
+                  fill: false
+              }, {
+                  data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+                  borderColor: "blue",
+                  fill: false
+              }]
+          },
+          options: {
+              legend: {display: false}
+          }
+      });
+  </script>
   <?php
     require($_SERVER['DOCUMENT_ROOT'] . '/pages/templates/includes/admin/script.php');
   ?>
